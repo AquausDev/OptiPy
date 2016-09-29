@@ -8,12 +8,13 @@ class DefineFixes:
         #takes the users file name
         file_name = input("Enter the python file name: ")
 
-        #opens the file, backs it up and then replaces
         with fileinput.FileInput(file_name+".py", inplace=True, backup='.bak') as file:
-            #checks each line for ' then replaces it with "
             for line in file:
                 print(line.replace("('", '("'), end='')
+        with fileinput.FileInput(file_name+".py", inplace=True, backup='.bak') as file:
+            for line in file:
                 print(line.replace("')", '")'), end='')
+        print("Finished")
                 
     def switch_double_quotes():
         """switches quotes from " to ' """
@@ -22,10 +23,12 @@ class DefineFixes:
 
         #opens the file, backs it up and then replaces
         with fileinput.FileInput(file_name+".py", inplace=True, backup='.bak') as file:
-            #checks each line for ' then replaces it with "
             for line in file:
                 print(line.replace('("', "('"), end='')
+        with fileinput.FileInput(file_name+".py", inplace=True, backup='.bak') as file:
+            for line in file:
                 print(line.replace('")', "')"), end='')
+        print("Finished")
 
 class RunFixes:
     """runs all the fixing functions"""      
